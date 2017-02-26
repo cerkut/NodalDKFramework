@@ -13,7 +13,7 @@ classdef preampModel < DKmodel
             	inputPort('In',[1,0],0),...
             	inputPort('power',[6,0],300),...
             	outputPort('Out',[7,0]),...    
-            	triode('v1',[3,4;5,4],'ecc83')];
+            	triode('v1',[3,4;5,4],0)];
             
             
             
@@ -39,7 +39,8 @@ classdef preampModel < DKmodel
            end
                   
         function [i, J] = nonlinearity(obj,v)
-            [i,J] = obj.nonlin_model(v);
+            %[i,J] = obj.nonlin_model(v);
+            [i, J] = ecc83_tube_model(v);
         end     
   
     end

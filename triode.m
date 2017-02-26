@@ -23,13 +23,13 @@ obj.nodes = zeros(2,2); % some components can be two-ports like this
     obj.name(1:l) = name__(1:l); % set the name
     obj.value = 0; % set the value
     obj.type = 'trd'; % 3char ID
-    obj.model = model__;
-    switch(obj.model)
-        case 'ecc83'
-            obj.model = @ecc83_tube_model;
-        case '12ax7'
-            obj.model = @ecc83_tube_model;
-    end
+    obj.model = '';
+  %  switch(obj.model)
+  %      case 'ecc83'
+  %          obj.model = @ecc83_tube_model;
+  %      case '12ax7'
+  %          obj.model = @ecc83_tube_model;
+  %  end
 end
 
 function [i, J] = ecc83_tube_model(v)
